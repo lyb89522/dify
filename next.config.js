@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // 启用静态导出
-  images: {
-    unoptimized: true  // 静态导出时需要禁用图片优化
+  productionBrowserSourceMaps: false, // enable browser source map generation during the production build
+  // Configure pageExtensions to include md and mdx
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  experimental: {
+    // appDir: true,
   },
-  trailingSlash: true,  // 添加尾部斜杠，提高兼容性
-};
-
   // fix all before production. Now it slow the develop speed.
   eslint: {
     // Warning: This allows production builds to successfully complete even if
@@ -20,5 +19,3 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
-
-
